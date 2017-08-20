@@ -21,18 +21,20 @@ public class ArchiMateModelAnalysis {
 	}
 
 	public List<ArchiMateElement> getArchiMateModelElements() {
-		archiMateElements = new ArrayList<ArchiMateElement>();
+		if (archiMateElements == null) {
+			archiMateElements = new ArrayList<ArchiMateElement>();
 
-		for (ResIterator iterator = archiMateModel.listSubjects(); iterator.hasNext();) {
-			Resource resource = iterator.nextResource();
-			int propertiesNumber = 0;
+			for (ResIterator iterator = archiMateModel.listSubjects(); iterator.hasNext();) {
+				Resource resource = iterator.nextResource();
+				int propertiesNumber = 0;
 
-			for (StmtIterator j = resource.listProperties(); j.hasNext();) {
-				j.nextStatement();
-				propertiesNumber++;
+				for (StmtIterator j = resource.listProperties(); j.hasNext();) {
+					j.nextStatement();
+					propertiesNumber++;
+				}
+
+				archiMateElements.add(new ArchiMateElement(resource.getLocalName(), propertiesNumber));
 			}
-
-			archiMateElements.add(new ArchiMateElement(resource.getLocalName(), propertiesNumber));
 		}
 
 		return archiMateElements;
