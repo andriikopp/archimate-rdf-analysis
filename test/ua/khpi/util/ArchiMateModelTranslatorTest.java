@@ -11,9 +11,9 @@ public class ArchiMateModelTranslatorTest {
 
 	@Test
 	public void testTranslateArchiMateModelToRDFGraph() {
-		final String archiMateModelName = "Archisurance";
-		final String archiMateModelPath = MODELS_PATH + archiMateModelName + ".xml";
-		final String collectionOfRDFStatementsPath = archiMateModelName + ".nt";
+		String archiMateModelName = "Archisurance";
+		String archiMateModelPath = MODELS_PATH + archiMateModelName + ".xml";
+		String collectionOfRDFStatementsPath = archiMateModelName + ".nt";
 
 		Model archiMateModel = ArchiMateModelTranslator.translateArchiMateModelToRDFGraph(archiMateModelPath,
 				collectionOfRDFStatementsPath);
