@@ -1,0 +1,75 @@
+package ua.khpi.util;
+
+import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Source;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
+
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+
+/**
+ * Perform some operations with RDF models
+ * 
+ * @author Andrii Kopp
+ */
+public class RDFUtil {
+	/**
+	 * XSLT file name
+	 */
+	public static final String XSLT_PROCESSOR = "processor.xslt";
+
+	/**
+	 * Base URI of RDF statements
+	 */
+	public static final String base = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+
+	/**
+	 * Read ArchiMate model as an RDF graph
+	 * 
+	 * @param archiMateModelPath
+	 * @param collectionOfRDFStatementsPath
+	 * @return RDF graph
+	 */
+	public static Model readArchiMateModelAsRDFGraph(String archiMateModelPath, String collectionOfRDFStatementsPath) {
+		try {
+			try (InputStream inputStream = new URL(archiMateModelPath).openStream()) {
+				TransformerFactory transformerFactory = TransformerFactory.newInstance();
+
+				Source xsltSource = new StreamSource(new File(XSLT_PROCESSOR));
+
+				Transformer transformer = transformerFactory.newTransformer(xsltSource);
+				transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+
+				Source xmlSource = new StreamSource(inputStream);
+
+				transformer.transform(xmlSource, new StreamResult(new File(collectionOfRDFStatementsPath)));
+			}
+
+			Path path = Paths.get(collectionOfRDFStatementsPath);
+
+			String content = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+			content = content.replaceAll("&lt;", "<");
+			content = content.replaceAll("&gt;", ">");
+
+			Files.write(path, content.getBytes(StandardCharsets.UTF_8));
+
+			Model graph = ModelFactory.createDefaultModel();
+			graph.read(collectionOfRDFStatementsPath, "N-TRIPLES");
+
+			return graph;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+}
