@@ -65,10 +65,46 @@ public class ArchiMateModelAnalysis {
 		int archiMateModelSize = archiMateElements.size();
 
 		for (ArchiMateElement archiMateElement : archiMateElements) {
-			double archiMateElementCentrality = archiMateElement.getElementPropertiesNumber() / archiMateModelSize - 1;
+			double archiMateElementCentrality = archiMateElement.getElementPropertiesNumber() / (archiMateModelSize - 1);
 
 			archiMateElement.setElementCentrality(archiMateElementCentrality);
 		}
+	}
+
+	public double calculateArchiMateModelCentrality() {
+		if (archiMateElements == null) {
+			archiMateElements = getArchiMateModelElements();
+		}
+
+		int archiMateModelSize = archiMateElements.size();
+		double archiMateElementPropertiesNumberDeviation = 0;
+		double maxArchiMateElementPropertiesNumber = getMaxArchiMateElementPropertiesNumber();
+
+		for (ArchiMateElement archiMateElement : archiMateElements) {
+			archiMateElementPropertiesNumberDeviation += (maxArchiMateElementPropertiesNumber
+					- archiMateElement.getElementPropertiesNumber());
+		}
+
+		double archiMateModelCentrality = archiMateElementPropertiesNumberDeviation
+				/ ((archiMateModelSize - 1) * (archiMateModelSize - 2));
+
+		return archiMateModelCentrality;
+	}
+
+	private double getMaxArchiMateElementPropertiesNumber() {
+		if (archiMateElements == null) {
+			archiMateElements = getArchiMateModelElements();
+		}
+
+		int maxArchiMateElementPropertiesNumber = 0;
+
+		for (ArchiMateElement archiMateElement : archiMateElements) {
+			if (archiMateElement.getElementPropertiesNumber() > maxArchiMateElementPropertiesNumber) {
+				maxArchiMateElementPropertiesNumber = archiMateElement.getElementPropertiesNumber();
+			}
+		}
+
+		return maxArchiMateElementPropertiesNumber;
 	}
 
 	public Model getArchiMateModel() {

@@ -52,4 +52,12 @@ public class ArchiMateModelAnalysisTest {
 			assertTrue(archiMateElement.getElementCentrality() <= 1);
 		}
 	}
+
+	@Test
+	public void testCalculateArchiMateModelCentrality() {
+		double archiMateModelCentrality = archiMateModelAnalysis.calculateArchiMateModelCentrality();
+		double expectedCentrality = 0.05;
+
+		assertEquals("Centrality values doesn't match", expectedCentrality, archiMateModelCentrality, 10E-2);
+	}
 }
