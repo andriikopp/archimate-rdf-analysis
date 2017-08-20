@@ -45,14 +45,14 @@ public class ArchiMateModelAnalysis {
 			archiMateElements = getArchiMateModelElements();
 		}
 
-		int archiMateModelSize = archiMateElements.size();
-		int archiMateElementsPropertiesSum = 0;
+		double archiMateModelSize = archiMateElements.size();
+		double archiMateElementsPropertiesSum = 0;
 
 		for (ArchiMateElement archiMateElement : archiMateElements) {
 			archiMateElementsPropertiesSum += archiMateElement.getElementPropertiesNumber();
 		}
 
-		int archiMateModelDensity = archiMateElementsPropertiesSum / (archiMateModelSize * (archiMateModelSize - 1));
+		double archiMateModelDensity = archiMateElementsPropertiesSum / (archiMateModelSize * (archiMateModelSize - 1));
 
 		return archiMateModelDensity;
 	}
@@ -62,7 +62,7 @@ public class ArchiMateModelAnalysis {
 			archiMateElements = getArchiMateModelElements();
 		}
 
-		int archiMateModelSize = archiMateElements.size();
+		double archiMateModelSize = archiMateElements.size();
 
 		for (ArchiMateElement archiMateElement : archiMateElements) {
 			double archiMateElementCentrality = archiMateElement.getElementPropertiesNumber() / (archiMateModelSize - 1);
@@ -76,7 +76,7 @@ public class ArchiMateModelAnalysis {
 			archiMateElements = getArchiMateModelElements();
 		}
 
-		int archiMateModelSize = archiMateElements.size();
+		double archiMateModelSize = archiMateElements.size();
 		double archiMateElementPropertiesNumberDeviation = 0;
 		double maxArchiMateElementPropertiesNumber = getMaxArchiMateElementPropertiesNumber();
 
@@ -96,7 +96,7 @@ public class ArchiMateModelAnalysis {
 			archiMateElements = getArchiMateModelElements();
 		}
 
-		int maxArchiMateElementPropertiesNumber = 0;
+		double maxArchiMateElementPropertiesNumber = 0;
 
 		for (ArchiMateElement archiMateElement : archiMateElements) {
 			if (archiMateElement.getElementPropertiesNumber() > maxArchiMateElementPropertiesNumber) {
