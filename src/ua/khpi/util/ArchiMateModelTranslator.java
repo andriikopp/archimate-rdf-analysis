@@ -46,10 +46,10 @@ public class ArchiMateModelTranslator {
 
 			Files.write(path, content.getBytes(StandardCharsets.UTF_8));
 
-			Model graph = ModelFactory.createDefaultModel();
-			graph.read(collectionOfRDFStatementsPath, "N-TRIPLES");
+			Model archiMateModel = ModelFactory.createDefaultModel();
+			archiMateModel.read(collectionOfRDFStatementsPath, "N-TRIPLES");
 
-			return graph;
+			return archiMateModel;
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

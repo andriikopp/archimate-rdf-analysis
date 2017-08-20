@@ -15,9 +15,9 @@ public class ArchiMateModelTranslatorTest {
 		final String archiMateModelPath = MODELS_PATH + archiMateModelName + ".xml";
 		final String collectionOfRDFStatementsPath = archiMateModelName + ".nt";
 
-		Model graph = ArchiMateModelTranslator.translateArchiMateModelToRDFGraph(archiMateModelPath,
+		Model archiMateModel = ArchiMateModelTranslator.translateArchiMateModelToRDFGraph(archiMateModelPath,
 				collectionOfRDFStatementsPath);
 
-		assertNotNull(graph);
+		assertNotNull(archiMateModel);
 	}
 }
