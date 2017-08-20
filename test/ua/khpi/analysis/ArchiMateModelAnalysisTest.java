@@ -18,8 +18,9 @@ public class ArchiMateModelAnalysisTest {
 	@Before
 	public void setUpArchiMateModel() {
 		String archiMateModelName = "Archisurance";
-		String archiMateModelPath = ArchiMateModelTranslatorTest.MODELS_PATH + archiMateModelName + ".xml";
-		String collectionOfRDFStatementsPath = archiMateModelName + ".nt";
+		String archiMateModelPath = ArchiMateModelTranslatorTest.ARCHIMATE_MODELS_PATH + archiMateModelName + ".xml";
+		String collectionOfRDFStatementsPath = ArchiMateModelTranslatorTest.RDF_TRIPLES_PATH + archiMateModelName
+				+ ".nt";
 
 		Model archiMateModel = ArchiMateModelTranslator.translateArchiMateModelToRDFGraph(archiMateModelPath,
 				collectionOfRDFStatementsPath);
