@@ -18,25 +18,12 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 
-/**
- * Perform some operations with RDF models
- * 
- * @author Andrii Kopp
- */
-public class RDFUtil {
-	/**
-	 * XSLT file name
-	 */
+public class ArchiMateModelTranslator {
+
 	public static final String XSLT_PROCESSOR = "processor.xslt";
 
-	/**
-	 * Read ArchiMate model as an RDF graph
-	 * 
-	 * @param archiMateModelPath
-	 * @param collectionOfRDFStatementsPath
-	 * @return RDF graph
-	 */
-	public static Model readArchiMateModelAsRDFGraph(String archiMateModelPath, String collectionOfRDFStatementsPath) {
+	public static Model translateArchiMateModelToRDFGraph(String archiMateModelPath,
+			String collectionOfRDFStatementsPath) {
 		try {
 			try (InputStream inputStream = new URL(archiMateModelPath).openStream()) {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
