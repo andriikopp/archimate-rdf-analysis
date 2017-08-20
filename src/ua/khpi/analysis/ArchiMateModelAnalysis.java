@@ -13,6 +13,7 @@ import ua.khpi.analysis.beans.ArchiMateElement;
 public class ArchiMateModelAnalysis {
 
 	private Model archiMateModel;
+	private List<ArchiMateElement> archiMateElements;
 
 	public ArchiMateModelAnalysis(Model graph) {
 		super();
@@ -20,7 +21,7 @@ public class ArchiMateModelAnalysis {
 	}
 
 	public List<ArchiMateElement> getArchiMateModelElements() {
-		List<ArchiMateElement> archiMateElements = new ArrayList<ArchiMateElement>();
+		archiMateElements = new ArrayList<ArchiMateElement>();
 
 		for (ResIterator iterator = archiMateModel.listSubjects(); iterator.hasNext();) {
 			Resource resource = iterator.nextResource();
@@ -38,7 +39,9 @@ public class ArchiMateModelAnalysis {
 	}
 
 	public double calculateArchiMateModelDensity() {
-		List<ArchiMateElement> archiMateElements = getArchiMateModelElements();
+		if (archiMateElements == null) {
+			archiMateElements = getArchiMateModelElements();
+		}
 
 		int archiMateModelSize = archiMateElements.size();
 		int archiMateElementsPropertiesSum = 0;
@@ -52,11 +55,33 @@ public class ArchiMateModelAnalysis {
 		return archiMateModelDensity;
 	}
 
+	public void calculateArchiMateElementsCentrality() {
+		if (archiMateElements == null) {
+			archiMateElements = getArchiMateModelElements();
+		}
+
+		int archiMateModelSize = archiMateElements.size();
+
+		for (ArchiMateElement archiMateElement : archiMateElements) {
+			double archiMateElementCentrality = archiMateElement.getElementPropertiesNumber() / archiMateModelSize - 1;
+
+			archiMateElement.setElementCentrality(archiMateElementCentrality);
+		}
+	}
+
 	public Model getArchiMateModel() {
 		return archiMateModel;
 	}
 
 	public void setArchiMateModel(Model graph) {
 		this.archiMateModel = graph;
+	}
+
+	public List<ArchiMateElement> getArchiMateElements() {
+		return archiMateElements;
+	}
+
+	public void setArchiMateElements(List<ArchiMateElement> archiMateElements) {
+		this.archiMateElements = archiMateElements;
 	}
 }
