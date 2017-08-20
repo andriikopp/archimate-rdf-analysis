@@ -5,6 +5,12 @@ public class ArchiMateElement {
 	private String elementName;
 	private int elementPropertiesNumber;
 	private double elementCentrality;
+	
+	public ArchiMateElement(String elementName, int elementPropertiesNumber) {
+		super();
+		this.elementName = elementName;
+		this.elementPropertiesNumber = elementPropertiesNumber;
+	}
 
 	public ArchiMateElement(String elementName, int elementPropertiesNumber, double elementCentrality) {
 		super();
