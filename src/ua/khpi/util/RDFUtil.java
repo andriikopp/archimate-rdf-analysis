@@ -30,11 +30,6 @@ public class RDFUtil {
 	public static final String XSLT_PROCESSOR = "processor.xslt";
 
 	/**
-	 * Base URI of RDF statements
-	 */
-	public static final String base = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-
-	/**
 	 * Read ArchiMate model as an RDF graph
 	 * 
 	 * @param archiMateModelPath
