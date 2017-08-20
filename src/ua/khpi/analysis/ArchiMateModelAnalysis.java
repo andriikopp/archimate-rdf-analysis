@@ -37,6 +37,21 @@ public class ArchiMateModelAnalysis {
 		return archiMateElements;
 	}
 
+	public double calculateArchiMateModelDensity() {
+		List<ArchiMateElement> archiMateElements = getArchiMateModelElements();
+
+		int archiMateModelSize = archiMateElements.size();
+		int archiMateElementsPropertiesSum = 0;
+
+		for (ArchiMateElement archiMateElement : archiMateElements) {
+			archiMateElementsPropertiesSum += archiMateElement.getElementPropertiesNumber();
+		}
+
+		int archiMateModelDensity = archiMateElementsPropertiesSum / (archiMateModelSize * (archiMateModelSize - 1));
+
+		return archiMateModelDensity;
+	}
+
 	public Model getArchiMateModel() {
 		return archiMateModel;
 	}
