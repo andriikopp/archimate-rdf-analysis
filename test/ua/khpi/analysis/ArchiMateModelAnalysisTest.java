@@ -18,12 +18,12 @@ public class ArchiMateModelAnalysisTest {
 
 		Model archiMateModel = ArchiMateModelTranslator.translateArchiMateModelToRDFGraph(archiMateModelPath,
 				collectionOfRDFStatementsPath);
-		
+
 		ArchiMateModelAnalysis archiMateModelAnalysis = new ArchiMateModelAnalysis(archiMateModel);
-		
+
 		int archiMateModelElementsNumber = archiMateModelAnalysis.getArchiMateModelElements().size();
 		int expectedNumber = 86;
-		
-		assertEquals("", expectedNumber, archiMateModelElementsNumber);
+
+		assertEquals("Elements numbers doesn't match", expectedNumber, archiMateModelElementsNumber);
 	}
 }
