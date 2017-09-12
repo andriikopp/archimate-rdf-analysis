@@ -1,5 +1,7 @@
 package ua.khpi.console;
 
+import java.util.List;
+
 import org.apache.jena.rdf.model.Model;
 
 import ua.khpi.analysis.ArchiMateModelAnalysis;
@@ -20,8 +22,9 @@ public class ArchiMateModelAnalysisConsole {
 
 		ArchiMateModelAnalysis archiMateModelAnalysis = new ArchiMateModelAnalysis(archiMateModel);
 
-		System.out.println(String.format("'%s' model's size: %d", archiMateModelName,
-				archiMateModelAnalysis.getArchiMateModelElements().size()));
+		List<ArchiMateElement> archiMateModelElements = archiMateModelAnalysis.getArchiMateModelElements();
+
+		System.out.println(String.format("'%s' model's size: %d", archiMateModelName, archiMateModelElements.size()));
 
 		System.out.println(String.format("'%s' model's density: %.2f", archiMateModelName,
 				archiMateModelAnalysis.calculateArchiMateModelDensity()));
@@ -33,7 +36,7 @@ public class ArchiMateModelAnalysisConsole {
 
 		System.out.printf("%-35s %s %s\n", "Element's name", "Properties number", "Centrality");
 
-		for (ArchiMateElement archiMateElement : archiMateModelAnalysis.getArchiMateModelElements()) {
+		for (ArchiMateElement archiMateElement : archiMateModelElements) {
 			System.out.printf("%-40s\t", archiMateElement.getElementName());
 			System.out.printf("%d\t", archiMateElement.getElementPropertiesNumber());
 			System.out.printf("%.2f\n", archiMateElement.getElementCentrality());
