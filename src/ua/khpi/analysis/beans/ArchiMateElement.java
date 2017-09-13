@@ -5,7 +5,7 @@ public class ArchiMateElement {
 	private String elementName;
 	private int elementPropertiesNumber;
 	private double elementCentrality;
-	
+
 	public ArchiMateElement(String elementName, int elementPropertiesNumber) {
 		super();
 		this.elementName = elementName;
@@ -29,11 +29,7 @@ public class ArchiMateElement {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(elementCentrality);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((elementName == null) ? 0 : elementName.hashCode());
-		result = prime * result + elementPropertiesNumber;
 		return result;
 	}
 
@@ -46,14 +42,10 @@ public class ArchiMateElement {
 		if (getClass() != obj.getClass())
 			return false;
 		ArchiMateElement other = (ArchiMateElement) obj;
-		if (Double.doubleToLongBits(elementCentrality) != Double.doubleToLongBits(other.elementCentrality))
-			return false;
 		if (elementName == null) {
 			if (other.elementName != null)
 				return false;
 		} else if (!elementName.equals(other.elementName))
-			return false;
-		if (elementPropertiesNumber != other.elementPropertiesNumber)
 			return false;
 		return true;
 	}
