@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.jena.rdf.model.Model;
 
+import ua.khpi.analysis.ArchiMateMapReduceModelAnalysis;
 import ua.khpi.analysis.ArchiMateModelAnalysis;
 import ua.khpi.analysis.beans.ArchiMateElement;
 import ua.khpi.util.ArchiMateModelTranslator;
@@ -20,7 +21,7 @@ public class ArchiMateModelAnalysisConsole {
 		Model archiMateModel = ArchiMateModelTranslator.translateArchiMateModelToRDFGraph(archiMateModelPath,
 				collectionOfRDFStatementsPath);
 
-		ArchiMateModelAnalysis archiMateModelAnalysis = new ArchiMateModelAnalysis(archiMateModel);
+		ArchiMateModelAnalysis archiMateModelAnalysis = new ArchiMateMapReduceModelAnalysis(archiMateModel);
 
 		List<ArchiMateElement> archiMateModelElements = archiMateModelAnalysis.getArchiMateModelElements();
 
