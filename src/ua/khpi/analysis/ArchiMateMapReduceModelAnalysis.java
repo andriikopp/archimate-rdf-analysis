@@ -35,7 +35,7 @@ public class ArchiMateMapReduceModelAnalysis extends ArchiMateModelAnalysis {
 	private void reduce() {
 		List<ArchiMateElement> result = new ArrayList<ArchiMateElement>();
 
-		for (ArchiMateElement element : getArchiMateElements()) {
+		getArchiMateElements().parallelStream().forEach(element -> {
 			int index = result.indexOf(element);
 
 			if (index == -1) {
@@ -45,7 +45,7 @@ public class ArchiMateMapReduceModelAnalysis extends ArchiMateModelAnalysis {
 
 				result.get(index).setElementPropertiesNumber(value + 1);
 			}
-		}
+		});
 
 		setArchiMateElements(result);
 	}
