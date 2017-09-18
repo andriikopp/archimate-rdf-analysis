@@ -18,7 +18,7 @@ public class MapReduceMeasures {
 		Model archiMateModel = ArchiMateModelTranslator.translateArchiMateModelToRDFGraph(archiMateModelPath,
 				collectionOfRDFStatementsPath);
 
-		final int N = 100;
+		final int N = 10;
 
 		long totalClassic = 0;
 		long totalMR = 0;
