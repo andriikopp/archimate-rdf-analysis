@@ -1,0 +1,225 @@
+
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Junction::Junction>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Develop_approved_proposal> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Junction::Junction>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Plan_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Junction::Junction>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Evaluate_customer_credit> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Register_customer>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Evaluate_credit_risk> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Evaluate_credit_risk>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Define_pricing_policy> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Define_pricing_policy>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept_proposal> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept_proposal>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Send_to_customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::New_customer_registered>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Evaluate_credit_risk> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_customer_credit_profile>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Initial_profile_assessment> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Initial_profile_assessment>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_assessment> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Define_credit_limit>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Define_payment_terms> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Verify_total_exposure_to_customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Customer_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Register_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Analyze_exposure>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Initial_assessment> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::New_customer_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Verify_total_exposure_to_customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_bulk_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Transmit_to_production> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Day_end>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Transmit_orders> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Initial_assessment>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_credit_risk_assessment> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Verify_total_exposure_to_customer>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Inform_customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Register_DC_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Check_availability> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Check_availability>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_production_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_production_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_shipping_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_shipping_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_DC_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Inquiry>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Develop_contract> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_DC_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Inform_DCs> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_customer>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Define_credit_limit> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_assessment>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_credit_risk_assessment>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_credit> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Transmit_to_production>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Bulk_order_feedback> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Bulk_order_feedback>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Inform_customer_on_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_customer_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Inform_customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessFunction::ArchiMetal_operations>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessService::Metal_Products_and_Services> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_customer_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Customer_order_update> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Register_customer>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_customer_data> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Approve_customer_data>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Evaluate_credit_risk> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Register_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Process_customer_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Customer_order_update> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Customer_order_registered>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Process_customer_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Customer_order_update>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Track_customer_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_shipping_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_customer_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Prepare_notification_message>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Send_notification_to_customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Plan_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Junction::Junction> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Evaluate_customer_credit>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Junction::Junction> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Develop_approved_proposal>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept_proposal> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::New_order_received>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Enter_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Enter_order>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Junction::Junction> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept_proposal>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Contract_in_place> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Contract_in_place>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Activate_plan> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Activate_plan>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Activate_delivery_schedule> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Activate_delivery_schedule>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Ready_production_line> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Ready_production_line>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Produce_order> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Baseline_2013>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Transition_architecture2014> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Transition_architecture2014>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Target_architecture_2015> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Current_state>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Transition_state> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Transition_state>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#Plateau::Target_state> .
+		

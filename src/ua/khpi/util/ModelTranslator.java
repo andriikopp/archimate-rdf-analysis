@@ -18,14 +18,15 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 
-public class ArchiMateModelTranslator {
+import ua.khpi.console.App;
+
+public class ModelTranslator {
 
 	public static final String XSLT_PROCESSOR = "processor.xslt";
 
-	public static Model translateArchiMateModelToRDFGraph(String archiMateModelPath,
-			String collectionOfRDFStatementsPath) {
+	public static Model toRDFGraph(String modelPath, String triplesPath) {
 		try {
-			try (InputStream inputStream = new URL(archiMateModelPath).openStream()) {
+			try (InputStream inputStream = new URL(App.PATH + modelPath).openStream()) {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
 				Source xsltSource = new StreamSource(new File(XSLT_PROCESSOR));
@@ -35,10 +36,10 @@ public class ArchiMateModelTranslator {
 
 				Source xmlSource = new StreamSource(inputStream);
 
-				transformer.transform(xmlSource, new StreamResult(new File(collectionOfRDFStatementsPath)));
+				transformer.transform(xmlSource, new StreamResult(new File(triplesPath)));
 			}
 
-			Path path = Paths.get(collectionOfRDFStatementsPath);
+			Path path = Paths.get(triplesPath);
 
 			String content = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
 			content = content.replaceAll("&lt;", "<");
@@ -47,7 +48,7 @@ public class ArchiMateModelTranslator {
 			Files.write(path, content.getBytes(StandardCharsets.UTF_8));
 
 			Model archiMateModel = ModelFactory.createDefaultModel();
-			archiMateModel.read(collectionOfRDFStatementsPath, "N-TRIPLES");
+			archiMateModel.read(App.PATH + triplesPath, "N-TRIPLES");
 
 			return archiMateModel;
 		} catch (Exception e) {

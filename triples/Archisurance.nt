@@ -1,0 +1,53 @@
+
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Damage_Occured>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Register> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Inform_Customer>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Collect_Premium> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Register>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Handle_Claim>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Inform_Customer> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessInteraction::Formalise_Request>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_Contract> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Accept>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Valuate> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Valuate>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Pay> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Request_for_Insurance>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessInteraction::Formalise_Request> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_Contract>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessInteraction::Check_and__Sign_Contract> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessRole::Customer>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::Request_for_Insurance> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#ApplicationFunction::Calculate_Risk>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#ApplicationFunction::Calculate_Premium> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#ApplicationFunction::Calculate_Premium>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#ApplicationFunction::Create_Policy> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#ApplicationFunction::Create_Policy>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#ApplicationFunction::Store_Policy> .
+		

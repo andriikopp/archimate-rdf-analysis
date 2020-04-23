@@ -8,12 +8,14 @@
 	<xsl:for-each select="arc:model/arc:relationships/arc:relationship">
 		<xsl:variable name="Source" select="concat('',@source,'')"></xsl:variable>
 		<xsl:variable name="Target" select="concat('',@target,'')"></xsl:variable>
+		<xsl:if test="contains(@xsi:type, 'TriggeringRelationship')">
 			&lt;<xsl:copy-of select="$base"/>
-				<xsl:value-of select="translate(//arc:element[@identifier=$Source]/arc:label, ' ', '_')"/>&gt;
+				<xsl:value-of select="translate(//arc:element[@identifier=$Source]/@xsi:type, ' ', '_')"/>::<xsl:value-of select="translate(//arc:element[@identifier=$Source]/arc:label, ' ', '_')"/>&gt;
 			&lt;<xsl:copy-of select="$base"/>
 				<xsl:value-of select="@xsi:type"/>&gt;
 			&lt;<xsl:copy-of select="$base"/>
-				<xsl:value-of select="translate(//arc:element[@identifier=$Target]/arc:label, ' ', '_')"/>&gt; .
+				<xsl:value-of select="translate(//arc:element[@identifier=$Target]/@xsi:type, ' ', '_')"/>::<xsl:value-of select="translate(//arc:element[@identifier=$Target]/arc:label, ' ', '_')"/>&gt; .
+		</xsl:if>
 	</xsl:for-each>
 </xsl:template>
 </xsl:stylesheet>

@@ -1,0 +1,61 @@
+
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessEvent::2_months_prior_to_open_day>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Open_Day_Planning> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Confirm_room_bookings>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::E-mail_staff> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Check_and_update_signage>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Print_PGCE> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Check_and_update_signage>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_materials> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_materials>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Print_PGCE> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Send_update_to_subject_staff>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Wait_for_responses_from_academics> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Confirm_room_bookings>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_marketing_list> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Create_marketing_list>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Attach_marketing_list_to_event> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Attach_marketing_list_to_event>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::E-mail_marketing_list> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::E-mail_marketing_list>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Add_planning_tasks> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Add_planning_tasks>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Update_materials> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::E-mail_staff>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Book_catering> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Book_catering>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Check_and_update_signage> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Open_Day_Planning>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Send_update_to_subject_staff> .
+		
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Wait_for_responses_from_academics>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#TriggeringRelationship>
+			<http://www.w3.org/1999/02/22-rdf-syntax-ns#BusinessProcess::Print_Open_Day_register> .
+		

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions id="definitions_ccc8101f-0855-4313-8b41-74f919a16979" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <process id="Archisurance">
+    <task id="Inform_Customer" name="Inform_Customer">
+      <incoming>Handle_Claim-Inform_Customer</incoming>
+      <outgoing>Inform_Customer-Collect_Premium</outgoing>
+    </task>
+    <task id="Accept" name="Accept">
+      <incoming>Register-Accept</incoming>
+      <outgoing>Accept-Valuate</outgoing>
+    </task>
+    <task id="Handle_Claim" name="Handle_Claim">
+      <outgoing>Handle_Claim-Inform_Customer</outgoing>
+    </task>
+    <task id="Collect_Premium" name="Collect_Premium">
+      <incoming>Inform_Customer-Collect_Premium</incoming>
+    </task>
+    <task id="Create_Contract" name="Create_Contract"/>
+    <task id="Pay" name="Pay">
+      <incoming>Valuate-Pay</incoming>
+    </task>
+    <task id="Register" name="Register">
+      <outgoing>Register-Accept</outgoing>
+    </task>
+    <task id="Valuate" name="Valuate">
+      <incoming>Accept-Valuate</incoming>
+      <outgoing>Valuate-Pay</outgoing>
+    </task>
+    <sequenceFlow id="Valuate-Pay" sourceRef="Valuate" targetRef="Pay"/>
+    <sequenceFlow id="Accept-Valuate" sourceRef="Accept" targetRef="Valuate"/>
+    <sequenceFlow id="Inform_Customer-Collect_Premium" sourceRef="Inform_Customer" targetRef="Collect_Premium"/>
+    <sequenceFlow id="Register-Accept" sourceRef="Register" targetRef="Accept"/>
+    <sequenceFlow id="Handle_Claim-Inform_Customer" sourceRef="Handle_Claim" targetRef="Inform_Customer"/>
+  </process>
+</definitions>
