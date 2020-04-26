@@ -86,6 +86,34 @@ public class ModelAnalysis {
 		return artifacts;
 	}
 
+	public void printMatrix() {
+		int[][] matrix = new int[artifacts.size()][artifacts.size()];
+		List<String> vertices = new ArrayList<>();
+
+		for (Artifact artifact : artifacts) {
+			vertices.add(artifact.getName());
+		}
+
+		for (Artifact artifact : artifacts) {
+			int row = vertices.indexOf(artifact.getName());
+
+			for (String out : artifact.getOutgoingNodes()) {
+				int col = vertices.indexOf(out);
+				matrix[row][col]++;
+			}
+		}
+
+		for (int i = 0; i < artifacts.size(); i++) {
+			System.out.printf("%-100s\t", vertices.get(i));
+
+			for (int j = 0; j < artifacts.size(); j++) {
+				System.out.printf("%d\t", matrix[i][j]);
+			}
+
+			System.out.println();
+		}
+	}
+
 	public void createMap(String fileName) {
 		Definitions definitions = modelInstance.newInstance(Definitions.class);
 		definitions.setTargetNamespace("http://camunda.org/examples");

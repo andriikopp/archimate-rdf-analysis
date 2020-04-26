@@ -39,6 +39,8 @@ public class App {
 			System.out.printf("%f\t", artifact.getCentrality());
 			System.out.printf("%f\n", artifact.getRank());
 		}
+		
+		analysis.printMatrix();
 	}
 
 	public static void main(String[] args) {
