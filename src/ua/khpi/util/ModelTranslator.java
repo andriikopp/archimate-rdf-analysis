@@ -18,7 +18,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 
-import ua.khpi.console.App;
+import ua.khpi.app.DataExtractionUtil;
 
 public class ModelTranslator {
 
@@ -26,7 +26,7 @@ public class ModelTranslator {
 
 	public static Model toRDFGraph(String modelPath, String triplesPath) {
 		try {
-			try (InputStream inputStream = new URL(App.PATH + modelPath).openStream()) {
+			try (InputStream inputStream = new URL(DataExtractionUtil.PATH + modelPath).openStream()) {
 				TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
 				Source xsltSource = new StreamSource(new File(XSLT_PROCESSOR));
@@ -48,7 +48,7 @@ public class ModelTranslator {
 			Files.write(path, content.getBytes(StandardCharsets.UTF_8));
 
 			Model archiMateModel = ModelFactory.createDefaultModel();
-			archiMateModel.read(App.PATH + triplesPath, "N-TRIPLES");
+			archiMateModel.read(DataExtractionUtil.PATH + triplesPath, "N-TRIPLES");
 
 			return archiMateModel;
 		} catch (Exception e) {

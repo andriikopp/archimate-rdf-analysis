@@ -23,7 +23,7 @@ import org.camunda.bpm.model.bpmn.instance.SequenceFlow;
 import org.camunda.bpm.model.bpmn.instance.Task;
 
 import ua.khpi.analysis.beans.Artifact;
-import ua.khpi.console.App;
+import ua.khpi.app.DataExtractionUtil;
 
 public class ModelAnalysis {
 	private Model model;
@@ -139,7 +139,7 @@ public class ModelAnalysis {
 		}
 
 		Bpmn.validateModel(modelInstance);
-		File file = new File(App.PROCESS_PATH + fileName + ".bpmn");
+		File file = new File(DataExtractionUtil.PROCESS_PATH + fileName + ".bpmn");
 		Bpmn.writeModelToFile(file, modelInstance);
 	}
 
