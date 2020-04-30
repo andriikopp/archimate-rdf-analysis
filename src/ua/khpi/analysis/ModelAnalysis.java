@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -86,7 +87,7 @@ public class ModelAnalysis {
 		return artifacts;
 	}
 
-	public void printMatrix() {
+	public int[][] adjacencyMatrix() {
 		int[][] matrix = new int[artifacts.size()][artifacts.size()];
 		List<String> vertices = new ArrayList<>();
 
@@ -103,6 +104,8 @@ public class ModelAnalysis {
 			}
 		}
 
+		System.out.printf("%-50sAdjacency matrix\n", "");
+
 		for (int i = 0; i < artifacts.size(); i++) {
 			System.out.printf("%-100s\t", vertices.get(i));
 
@@ -112,6 +115,71 @@ public class ModelAnalysis {
 
 			System.out.println();
 		}
+
+		return matrix;
+	}
+
+	public int[][] reachabilityMatrix() {
+		int[][] matrix = new int[artifacts.size()][artifacts.size()];
+		int[][] adjMatr = adjacencyMatrix();
+
+		final int INF = 999;
+
+		for (int i = 0; i < artifacts.size(); i++) {
+			for (int j = 0; j < artifacts.size(); j++) {
+				matrix[i][j] = adjMatr[i][j] > 0 ? adjMatr[i][j] : i == j ? 0 : INF;
+			}
+		}
+
+		for (int k = 0; k < artifacts.size(); k++) {
+			for (int i = 0; i < artifacts.size(); i++) {
+				for (int j = 0; j < artifacts.size(); j++) {
+					matrix[i][j] = Math.min(matrix[i][j], matrix[i][k] + matrix[k][j]);
+				}
+			}
+		}
+
+		System.out.printf("%-50sReachability matrix\n", "");
+
+		for (int i = 0; i < artifacts.size(); i++) {
+			System.out.printf("%-100s\t", artifacts.get(i).getName());
+
+			for (int j = 0; j < artifacts.size(); j++) {
+				matrix[i][j] = matrix[i][j] == INF ? 0 : matrix[i][j];
+				System.out.printf("%d\t", matrix[i][j]);
+			}
+
+			System.out.println();
+		}
+
+		return matrix;
+	}
+
+	public Map<String, Double> propagationCost() {
+		Map<String, Double> result = new LinkedHashMap<>();
+		int[][] reachMatr = reachabilityMatrix();
+
+		System.out.printf("%-50sPropagation cost\n", "");
+
+		for (int i = 0; i < artifacts.size(); i++) {
+			double visFanIn = 0;
+			double visFanOut = 0;
+
+			for (int j = 0; j < reachMatr.length; j++) {
+				visFanIn += reachMatr[j][i];
+				visFanOut += reachMatr[i][j];
+			}
+
+			visFanIn /= Math.pow(artifacts.size(), 2);
+			visFanOut /= Math.pow(artifacts.size(), 2);
+
+			double propagationCost = visFanIn + visFanOut;
+			result.put(artifacts.get(i).getName(), propagationCost);
+
+			System.out.printf("%-100s\t%f\n", artifacts.get(i).getName(), propagationCost);
+		}
+
+		return result;
 	}
 
 	public void createMap(String fileName) {

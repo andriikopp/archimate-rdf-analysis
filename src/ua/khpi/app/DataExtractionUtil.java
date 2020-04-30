@@ -52,8 +52,7 @@ public final class DataExtractionUtil {
 			dao.insertAnalysisResults(modelName, artifact, timestamp);
 		}
 
-		System.out.println("Adjacency matrix");
-		analysis.printMatrix();
+		analysis.propagationCost();
 	}
 
 	public static void extractData() {
