@@ -41,6 +41,7 @@ public final class DataExtractionUtil {
 
 		analysis.centrality();
 		analysis.rank();
+		analysis.propagationCost();
 
 		for (Artifact artifact : artifacts) {
 			System.out.printf("%-100s\t", artifact.getType() + "::" + artifact.getName());
@@ -51,8 +52,6 @@ public final class DataExtractionUtil {
 
 			dao.insertAnalysisResults(modelName, artifact, timestamp);
 		}
-
-		analysis.propagationCost();
 	}
 
 	public static void extractData() {

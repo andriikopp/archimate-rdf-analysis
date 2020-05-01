@@ -16,6 +16,8 @@ public class Artifact {
 
 	private String type;
 
+	private double cost;
+
 	public Artifact(String name, int incoming, int outgoing) {
 		super();
 		this.name = name;
@@ -85,5 +87,13 @@ public class Artifact {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public double getCost() {
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 }

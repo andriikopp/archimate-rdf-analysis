@@ -19,8 +19,8 @@ public class ModelAnalysisDAO {
 	}
 
 	public void insertAnalysisResults(String map, Artifact artifact, Timestamp timestamp) {
-		String insertSql = "insert into ea_prm(prm_map, prm_timestamp, prm_year, prm_month, prm_day, prm_proc, prm_type, prm_indeg, prm_outdeg, prm_centr, prm_rank) "
-				+ "values (:prm_map, :prm_timestamp, :prm_year, :prm_month, :prm_day, :prm_proc, :prm_type, :prm_indeg, :prm_outdeg, :prm_centr, :prm_rank)";
+		String insertSql = "insert into ea_prm(prm_map, prm_timestamp, prm_year, prm_month, prm_day, prm_proc, prm_type, prm_indeg, prm_outdeg, prm_centr, prm_rank, prm_pc) "
+				+ "values (:prm_map, :prm_timestamp, :prm_year, :prm_month, :prm_day, :prm_proc, :prm_type, :prm_indeg, :prm_outdeg, :prm_centr, :prm_rank, :prm_pc)";
 
 		try (Connection con = sql2o.open()) {
 			con.createQuery(insertSql).addParameter("prm_map", map).addParameter("prm_year", Year.now().getValue())
@@ -30,7 +30,7 @@ public class ModelAnalysisDAO {
 					.addParameter("prm_indeg", artifact.getIncomingNodes().size())
 					.addParameter("prm_outdeg", artifact.getOutgoingNodes().size())
 					.addParameter("prm_centr", artifact.getCentrality()).addParameter("prm_rank", artifact.getRank())
-					.executeUpdate();
+					.addParameter("prm_pc", artifact.getCost()).executeUpdate();
 		}
 	}
 

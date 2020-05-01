@@ -175,6 +175,7 @@ public class ModelAnalysis {
 
 			double propagationCost = visFanIn + visFanOut;
 			result.put(artifacts.get(i).getName(), propagationCost);
+			artifacts.get(i).setCost(propagationCost);
 
 			System.out.printf("%-100s\t%f\n", artifacts.get(i).getName(), propagationCost);
 		}
