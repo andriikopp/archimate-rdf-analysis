@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions id="definitions_d1a92dbe-8d47-40c8-8c34-b14accb32c3e" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+<definitions id="definitions_c4d40f38-5899-48d3-a947-bdc1a98518d0" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
   <process id="ArchiMetal">
     <task id="Inform_DCs" name="Inform_DCs">
       <incoming>Update_DC_order-Inform_DCs</incoming>

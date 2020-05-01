@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions id="definitions_9ba2a3b2-292f-4ad6-8615-fe7569c3f5db" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+<definitions id="definitions_28731484-1555-46df-bb41-54de1e2e6086" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
   <process id="OpenDay">
     <task id="E-mail_marketing_list" name="E-mail_marketing_list">
       <incoming>Attach_marketing_list_to_event-E-mail_marketing_list</incoming>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions id="definitions_ccc8101f-0855-4313-8b41-74f919a16979" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+<definitions id="definitions_96da72db-5d10-421e-99a7-9aeab8a8b1dd" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
   <process id="Archisurance">
     <task id="Inform_Customer" name="Inform_Customer">
       <incoming>Handle_Claim-Inform_Customer</incoming>
