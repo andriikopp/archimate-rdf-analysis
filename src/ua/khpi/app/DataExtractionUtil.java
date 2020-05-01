@@ -32,8 +32,6 @@ public final class DataExtractionUtil {
 		ModelAnalysis analysis = new ModelAnalysis(model);
 		List<Artifact> artifacts = analysis.extractArtifacts();
 
-		analysis.createMap(modelName);
-
 		System.out.println(String.format("'%s' size: %d", modelName, artifacts.size()));
 		System.out.println(String.format("'%s' density: %.2f", modelName, analysis.density()));
 		System.out.println(String.format("'%s' connectivity: %.2f", modelName, analysis.connectivity()));
@@ -43,15 +41,22 @@ public final class DataExtractionUtil {
 		analysis.rank();
 		analysis.propagationCost();
 
+		final double percentage = 0.2;
+		analysis.optimization(percentage);
+
 		for (Artifact artifact : artifacts) {
 			System.out.printf("%-100s\t", artifact.getType() + "::" + artifact.getName());
 			System.out.printf("%d\t", artifact.getIncoming());
 			System.out.printf("%d\t", artifact.getOutgoing());
 			System.out.printf("%f\t", artifact.getCentrality());
-			System.out.printf("%f\n", artifact.getRank());
+			System.out.printf("%f\t", artifact.getRank());
+			System.out.printf("%f\t", artifact.getCost());
+			System.out.printf("%d\n", artifact.getOpt());
 
 			dao.insertAnalysisResults(modelName, artifact, timestamp);
 		}
+
+		analysis.createMap(modelName);
 	}
 
 	public static void extractData() {

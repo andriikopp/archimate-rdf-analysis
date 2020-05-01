@@ -2,6 +2,7 @@ package ua.khpi.analysis;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -23,6 +24,7 @@ import org.camunda.bpm.model.bpmn.instance.Process;
 import org.camunda.bpm.model.bpmn.instance.SequenceFlow;
 import org.camunda.bpm.model.bpmn.instance.Task;
 
+import ua.khpi.analysis.Knapsack.KnapsackSolution;
 import ua.khpi.analysis.beans.Artifact;
 import ua.khpi.app.DataExtractionUtil;
 
@@ -183,6 +185,28 @@ public class ModelAnalysis {
 		return result;
 	}
 
+	public void optimization(double percentage) {
+		Collections.sort(artifacts, (x, y) -> {
+			return Double.compare(y.getRank(), x.getRank());
+		});
+
+		double ranks[] = new double[artifacts.size()];
+		double costs[] = new double[artifacts.size()];
+
+		for (int i = 0; i < artifacts.size(); i++) {
+			ranks[i] = artifacts.get(i).getRank();
+			costs[i] = artifacts.get(i).getCost();
+		}
+
+		KnapsackSolution solution = Knapsack.knapSack(percentage, costs, ranks, ranks.length);
+
+		System.out.println(solution);
+
+		for (int i = 0; i < artifacts.size(); i++) {
+			artifacts.get(i).setOpt((int) solution.items[i]);
+		}
+	}
+
 	public void createMap(String fileName) {
 		Definitions definitions = modelInstance.newInstance(Definitions.class);
 		definitions.setTargetNamespace("http://camunda.org/examples");
@@ -192,9 +216,11 @@ public class ModelAnalysis {
 		Map<String, FlowNode> flowNodes = new HashMap<>();
 
 		for (Artifact artifact : artifacts) {
-			FlowNode flowNode = createElement(process, artifact.getName(), Task.class);
-			flowNode.setAttributeValue("name", artifact.getName(), true);
-			flowNodes.put(artifact.getName(), flowNode);
+			if (artifact.getOpt() > 0) {
+				FlowNode flowNode = createElement(process, artifact.getName(), Task.class);
+				flowNode.setAttributeValue("name", artifact.getName(), true);
+				flowNodes.put(artifact.getName(), flowNode);
+			}
 		}
 
 		for (StmtIterator iterator = model.listStatements(); iterator.hasNext();) {

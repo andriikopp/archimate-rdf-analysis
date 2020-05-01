@@ -1,75 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions id="definitions_28731484-1555-46df-bb41-54de1e2e6086" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+<definitions id="definitions_d8276f04-b7ca-4b56-81a4-37bdc0aeab70" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
   <process id="OpenDay">
-    <task id="E-mail_marketing_list" name="E-mail_marketing_list">
-      <incoming>Attach_marketing_list_to_event-E-mail_marketing_list</incoming>
-      <outgoing>E-mail_marketing_list-Add_planning_tasks</outgoing>
-    </task>
-    <task id="Create_marketing_list" name="Create_marketing_list">
-      <incoming>Confirm_room_bookings-Create_marketing_list</incoming>
-      <outgoing>Create_marketing_list-Attach_marketing_list_to_event</outgoing>
-    </task>
-    <task id="Open_Day_Planning" name="Open_Day_Planning">
-      <outgoing>Open_Day_Planning-Send_update_to_subject_staff</outgoing>
-    </task>
-    <task id="Book_catering" name="Book_catering">
-      <incoming>E-mail_staff-Book_catering</incoming>
-      <outgoing>Book_catering-Check_and_update_signage</outgoing>
-    </task>
-    <task id="Attach_marketing_list_to_event" name="Attach_marketing_list_to_event">
-      <incoming>Create_marketing_list-Attach_marketing_list_to_event</incoming>
-      <outgoing>Attach_marketing_list_to_event-E-mail_marketing_list</outgoing>
-    </task>
     <task id="Check_and_update_signage" name="Check_and_update_signage">
       <incoming>Book_catering-Check_and_update_signage</incoming>
       <outgoing>Check_and_update_signage-Update_materials</outgoing>
-      <outgoing>Check_and_update_signage-Print_PGCE</outgoing>
-    </task>
-    <task id="Print_Open_Day_register" name="Print_Open_Day_register">
-      <incoming>Wait_for_responses_from_academics-Print_Open_Day_register</incoming>
-    </task>
-    <task id="Send_update_to_subject_staff" name="Send_update_to_subject_staff">
-      <incoming>Open_Day_Planning-Send_update_to_subject_staff</incoming>
-      <outgoing>Send_update_to_subject_staff-Wait_for_responses_from_academics</outgoing>
     </task>
     <task id="Update_materials" name="Update_materials">
-      <incoming>Add_planning_tasks-Update_materials</incoming>
       <incoming>Check_and_update_signage-Update_materials</incoming>
-      <outgoing>Update_materials-Print_PGCE</outgoing>
     </task>
-    <task id="Wait_for_responses_from_academics" name="Wait_for_responses_from_academics">
-      <incoming>Send_update_to_subject_staff-Wait_for_responses_from_academics</incoming>
-      <outgoing>Wait_for_responses_from_academics-Print_Open_Day_register</outgoing>
+    <task id="Book_catering" name="Book_catering">
+      <outgoing>Book_catering-Check_and_update_signage</outgoing>
     </task>
-    <task id="Add_planning_tasks" name="Add_planning_tasks">
-      <incoming>E-mail_marketing_list-Add_planning_tasks</incoming>
-      <outgoing>Add_planning_tasks-Update_materials</outgoing>
-    </task>
-    <task id="Confirm_room_bookings" name="Confirm_room_bookings">
-      <outgoing>Confirm_room_bookings-Create_marketing_list</outgoing>
-      <outgoing>Confirm_room_bookings-E-mail_staff</outgoing>
-    </task>
-    <task id="Print_PGCE" name="Print_PGCE">
-      <incoming>Update_materials-Print_PGCE</incoming>
-      <incoming>Check_and_update_signage-Print_PGCE</incoming>
-    </task>
-    <task id="E-mail_staff" name="E-mail_staff">
-      <incoming>Confirm_room_bookings-E-mail_staff</incoming>
-      <outgoing>E-mail_staff-Book_catering</outgoing>
-    </task>
-    <sequenceFlow id="Create_marketing_list-Attach_marketing_list_to_event" sourceRef="Create_marketing_list" targetRef="Attach_marketing_list_to_event"/>
-    <sequenceFlow id="Attach_marketing_list_to_event-E-mail_marketing_list" sourceRef="Attach_marketing_list_to_event" targetRef="E-mail_marketing_list"/>
-    <sequenceFlow id="Confirm_room_bookings-Create_marketing_list" sourceRef="Confirm_room_bookings" targetRef="Create_marketing_list"/>
-    <sequenceFlow id="Confirm_room_bookings-E-mail_staff" sourceRef="Confirm_room_bookings" targetRef="E-mail_staff"/>
-    <sequenceFlow id="Open_Day_Planning-Send_update_to_subject_staff" sourceRef="Open_Day_Planning" targetRef="Send_update_to_subject_staff"/>
-    <sequenceFlow id="Add_planning_tasks-Update_materials" sourceRef="Add_planning_tasks" targetRef="Update_materials"/>
     <sequenceFlow id="Book_catering-Check_and_update_signage" sourceRef="Book_catering" targetRef="Check_and_update_signage"/>
-    <sequenceFlow id="Update_materials-Print_PGCE" sourceRef="Update_materials" targetRef="Print_PGCE"/>
-    <sequenceFlow id="E-mail_marketing_list-Add_planning_tasks" sourceRef="E-mail_marketing_list" targetRef="Add_planning_tasks"/>
-    <sequenceFlow id="Wait_for_responses_from_academics-Print_Open_Day_register" sourceRef="Wait_for_responses_from_academics" targetRef="Print_Open_Day_register"/>
-    <sequenceFlow id="E-mail_staff-Book_catering" sourceRef="E-mail_staff" targetRef="Book_catering"/>
-    <sequenceFlow id="Send_update_to_subject_staff-Wait_for_responses_from_academics" sourceRef="Send_update_to_subject_staff" targetRef="Wait_for_responses_from_academics"/>
     <sequenceFlow id="Check_and_update_signage-Update_materials" sourceRef="Check_and_update_signage" targetRef="Update_materials"/>
-    <sequenceFlow id="Check_and_update_signage-Print_PGCE" sourceRef="Check_and_update_signage" targetRef="Print_PGCE"/>
   </process>
 </definitions>

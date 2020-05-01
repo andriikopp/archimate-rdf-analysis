@@ -18,6 +18,8 @@ public class Artifact {
 
 	private double cost;
 
+	private int opt;
+
 	public Artifact(String name, int incoming, int outgoing) {
 		super();
 		this.name = name;
@@ -95,5 +97,13 @@ public class Artifact {
 
 	public void setCost(double cost) {
 		this.cost = cost;
+	}
+
+	public int getOpt() {
+		return opt;
+	}
+
+	public void setOpt(int opt) {
+		this.opt = opt;
 	}
 }

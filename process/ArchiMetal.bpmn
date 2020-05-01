@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<definitions id="definitions_c4d40f38-5899-48d3-a947-bdc1a98518d0" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+<definitions id="definitions_4f42e000-6354-4086-b4db-2c841c9ebc25" targetNamespace="http://camunda.org/examples" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
   <process id="ArchiMetal">
-    <task id="Inform_DCs" name="Inform_DCs">
-      <incoming>Update_DC_order-Inform_DCs</incoming>
+    <task id="Evaluate_credit_risk" name="Evaluate_credit_risk">
+      <incoming>Register_customer-Evaluate_credit_risk</incoming>
+      <incoming>Approve_customer_data-Evaluate_credit_risk</incoming>
+      <outgoing>Evaluate_credit_risk-Define_pricing_policy</outgoing>
     </task>
-    <task id="Register_order" name="Register_order">
-      <outgoing>Register_order-Process_customer_order</outgoing>
+    <task id="Create_shipping_order" name="Create_shipping_order">
+      <incoming>Create_production_order-Create_shipping_order</incoming>
+      <outgoing>Create_shipping_order-Update_customer_order</outgoing>
+      <outgoing>Create_shipping_order-Update_DC_order</outgoing>
     </task>
-    <task id="Transmit_to_production" name="Transmit_to_production">
-      <incoming>Create_bulk_order-Transmit_to_production</incoming>
-    </task>
-    <task id="Activate_delivery_schedule" name="Activate_delivery_schedule">
-      <incoming>Activate_plan-Activate_delivery_schedule</incoming>
-      <outgoing>Activate_delivery_schedule-Ready_production_line</outgoing>
+    <task id="Define_pricing_policy" name="Define_pricing_policy">
+      <incoming>Evaluate_credit_risk-Define_pricing_policy</incoming>
+      <outgoing>Define_pricing_policy-Accept_proposal</outgoing>
     </task>
     <task id="Register_customer" name="Register_customer">
       <outgoing>Register_customer-Approve_customer_data</outgoing>
@@ -22,80 +23,59 @@
       <incoming>Register_customer-Approve_customer_data</incoming>
       <outgoing>Approve_customer_data-Evaluate_credit_risk</outgoing>
     </task>
-    <task id="Develop_approved_proposal" name="Develop_approved_proposal">
-      <outgoing>Develop_approved_proposal-Accept_proposal</outgoing>
+    <task id="Create_production_order" name="Create_production_order">
+      <incoming>Check_availability-Create_production_order</incoming>
+      <outgoing>Create_production_order-Create_shipping_order</outgoing>
     </task>
-    <task id="Prepare_notification_message" name="Prepare_notification_message">
-      <outgoing>Prepare_notification_message-Send_notification_to_customer</outgoing>
-    </task>
-    <task id="Create_customer_credit_profile" name="Create_customer_credit_profile">
-      <outgoing>Create_customer_credit_profile-Initial_profile_assessment</outgoing>
-    </task>
-    <task id="Approve_assessment" name="Approve_assessment">
-      <incoming>Initial_profile_assessment-Approve_assessment</incoming>
-      <outgoing>Approve_assessment-Approve_customer</outgoing>
-    </task>
-    <task id="Develop_contract" name="Develop_contract"/>
-    <task id="Send_to_customer" name="Send_to_customer">
-      <incoming>Accept_proposal-Send_to_customer</incoming>
-    </task>
-    <task id="Define_pricing_policy" name="Define_pricing_policy">
-      <incoming>Evaluate_credit_risk-Define_pricing_policy</incoming>
-      <outgoing>Define_pricing_policy-Accept_proposal</outgoing>
-    </task>
-    <task id="Send_notification_to_customer" name="Send_notification_to_customer">
-      <incoming>Prepare_notification_message-Send_notification_to_customer</incoming>
+    <task id="Update_customer_order" name="Update_customer_order">
+      <incoming>Create_shipping_order-Update_customer_order</incoming>
+      <outgoing>Update_customer_order-Inform_customer</outgoing>
     </task>
     <task id="Accept_proposal" name="Accept_proposal">
       <incoming>Develop_approved_proposal-Accept_proposal</incoming>
       <incoming>Define_pricing_policy-Accept_proposal</incoming>
       <outgoing>Accept_proposal-Send_to_customer</outgoing>
     </task>
-    <task id="Ready_production_line" name="Ready_production_line">
-      <incoming>Activate_delivery_schedule-Ready_production_line</incoming>
-      <outgoing>Ready_production_line-Produce_order</outgoing>
-    </task>
-    <task id="Evaluate_credit_risk" name="Evaluate_credit_risk">
-      <incoming>Register_customer-Evaluate_credit_risk</incoming>
-      <incoming>Approve_customer_data-Evaluate_credit_risk</incoming>
-      <outgoing>Evaluate_credit_risk-Define_pricing_policy</outgoing>
-    </task>
-    <task id="Register_DC_order" name="Register_DC_order">
-      <outgoing>Register_DC_order-Check_availability</outgoing>
-    </task>
-    <task id="Produce_order" name="Produce_order">
-      <incoming>Ready_production_line-Produce_order</incoming>
-    </task>
-    <task id="Transmit_orders" name="Transmit_orders"/>
-    <task id="Verify_total_exposure_to_customer" name="Verify_total_exposure_to_customer">
-      <incoming>Create_order-Verify_total_exposure_to_customer</incoming>
-      <outgoing>Verify_total_exposure_to_customer-Accept_order</outgoing>
+    <task id="Approve_assessment" name="Approve_assessment">
+      <incoming>Initial_profile_assessment-Approve_assessment</incoming>
+      <outgoing>Approve_assessment-Approve_customer</outgoing>
     </task>
     <task id="Update_DC_order" name="Update_DC_order">
       <incoming>Create_shipping_order-Update_DC_order</incoming>
       <outgoing>Update_DC_order-Inform_DCs</outgoing>
     </task>
-    <task id="Plan_order" name="Plan_order"/>
+    <task id="Approve_customer" name="Approve_customer">
+      <incoming>Approve_assessment-Approve_customer</incoming>
+      <outgoing>Approve_customer-Define_credit_limit</outgoing>
+    </task>
+    <task id="Inform_customer" name="Inform_customer">
+      <incoming>Accept_order-Inform_customer</incoming>
+      <incoming>Update_customer_order-Inform_customer</incoming>
+    </task>
+    <task id="Accept_order" name="Accept_order">
+      <incoming>Verify_total_exposure_to_customer-Accept_order</incoming>
+      <outgoing>Accept_order-Inform_customer</outgoing>
+    </task>
+    <task id="Activate_delivery_schedule" name="Activate_delivery_schedule">
+      <incoming>Activate_plan-Activate_delivery_schedule</incoming>
+      <outgoing>Activate_delivery_schedule-Ready_production_line</outgoing>
+    </task>
+    <task id="Ready_production_line" name="Ready_production_line">
+      <incoming>Activate_delivery_schedule-Ready_production_line</incoming>
+      <outgoing>Ready_production_line-Produce_order</outgoing>
+    </task>
+    <task id="Verify_total_exposure_to_customer" name="Verify_total_exposure_to_customer">
+      <incoming>Create_order-Verify_total_exposure_to_customer</incoming>
+      <outgoing>Verify_total_exposure_to_customer-Accept_order</outgoing>
+    </task>
     <task id="Initial_profile_assessment" name="Initial_profile_assessment">
       <incoming>Create_customer_credit_profile-Initial_profile_assessment</incoming>
       <outgoing>Initial_profile_assessment-Approve_assessment</outgoing>
-    </task>
-    <task id="Create_production_order" name="Create_production_order">
-      <incoming>Check_availability-Create_production_order</incoming>
-      <outgoing>Create_production_order-Create_shipping_order</outgoing>
     </task>
     <task id="Approve_credit_risk_assessment" name="Approve_credit_risk_assessment">
       <incoming>Initial_assessment-Approve_credit_risk_assessment</incoming>
       <outgoing>Approve_credit_risk_assessment-Approve_credit</outgoing>
     </task>
-    <task id="Approve_customer" name="Approve_customer">
-      <incoming>Approve_assessment-Approve_customer</incoming>
-      <outgoing>Approve_customer-Define_credit_limit</outgoing>
-    </task>
-    <task id="Process_customer_order" name="Process_customer_order">
-      <incoming>Register_order-Process_customer_order</incoming>
-    </task>
-    <task id="Inform_customer_on_order" name="Inform_customer_on_order"/>
     <task id="Define_credit_limit" name="Define_credit_limit">
       <incoming>Approve_customer-Define_credit_limit</incoming>
       <outgoing>Define_credit_limit-Define_payment_terms</outgoing>
@@ -104,12 +84,30 @@
       <incoming>Analyze_exposure-Initial_assessment</incoming>
       <outgoing>Initial_assessment-Approve_credit_risk_assessment</outgoing>
     </task>
+    <task id="Check_availability" name="Check_availability">
+      <incoming>Register_DC_order-Check_availability</incoming>
+      <outgoing>Check_availability-Create_production_order</outgoing>
+    </task>
+    <task id="Develop_approved_proposal" name="Develop_approved_proposal">
+      <outgoing>Develop_approved_proposal-Accept_proposal</outgoing>
+    </task>
+    <task id="Send_to_customer" name="Send_to_customer">
+      <incoming>Accept_proposal-Send_to_customer</incoming>
+    </task>
+    <task id="Inform_DCs" name="Inform_DCs">
+      <incoming>Update_DC_order-Inform_DCs</incoming>
+    </task>
+    <task id="Create_customer_credit_profile" name="Create_customer_credit_profile">
+      <outgoing>Create_customer_credit_profile-Initial_profile_assessment</outgoing>
+    </task>
+    <task id="Register_DC_order" name="Register_DC_order">
+      <outgoing>Register_DC_order-Check_availability</outgoing>
+    </task>
+    <task id="Produce_order" name="Produce_order">
+      <incoming>Ready_production_line-Produce_order</incoming>
+    </task>
     <task id="Activate_plan" name="Activate_plan">
       <outgoing>Activate_plan-Activate_delivery_schedule</outgoing>
-    </task>
-    <task id="Update_customer_order" name="Update_customer_order">
-      <incoming>Create_shipping_order-Update_customer_order</incoming>
-      <outgoing>Update_customer_order-Inform_customer</outgoing>
     </task>
     <task id="Approve_credit" name="Approve_credit">
       <incoming>Approve_credit_risk_assessment-Approve_credit</incoming>
@@ -117,35 +115,37 @@
     <task id="Analyze_exposure" name="Analyze_exposure">
       <outgoing>Analyze_exposure-Initial_assessment</outgoing>
     </task>
-    <task id="Inform_customer" name="Inform_customer">
-      <incoming>Accept_order-Inform_customer</incoming>
-      <incoming>Update_customer_order-Inform_customer</incoming>
-    </task>
-    <task id="Create_bulk_order" name="Create_bulk_order">
-      <outgoing>Create_bulk_order-Transmit_to_production</outgoing>
-    </task>
     <task id="Define_payment_terms" name="Define_payment_terms">
       <incoming>Define_credit_limit-Define_payment_terms</incoming>
-    </task>
-    <task id="Accept_order" name="Accept_order">
-      <incoming>Verify_total_exposure_to_customer-Accept_order</incoming>
-      <outgoing>Accept_order-Inform_customer</outgoing>
-    </task>
-    <task id="Enter_order" name="Enter_order"/>
-    <task id="Track_customer_order" name="Track_customer_order"/>
-    <task id="Create_shipping_order" name="Create_shipping_order">
-      <incoming>Create_production_order-Create_shipping_order</incoming>
-      <outgoing>Create_shipping_order-Update_customer_order</outgoing>
-      <outgoing>Create_shipping_order-Update_DC_order</outgoing>
     </task>
     <task id="Create_order" name="Create_order">
       <outgoing>Create_order-Verify_total_exposure_to_customer</outgoing>
     </task>
-    <task id="Evaluate_customer_credit" name="Evaluate_customer_credit"/>
-    <task id="Check_availability" name="Check_availability">
-      <incoming>Register_DC_order-Check_availability</incoming>
-      <outgoing>Check_availability-Create_production_order</outgoing>
+    <task id="Register_order" name="Register_order">
+      <outgoing>Register_order-Process_customer_order</outgoing>
     </task>
+    <task id="Transmit_to_production" name="Transmit_to_production">
+      <incoming>Create_bulk_order-Transmit_to_production</incoming>
+    </task>
+    <task id="Prepare_notification_message" name="Prepare_notification_message">
+      <outgoing>Prepare_notification_message-Send_notification_to_customer</outgoing>
+    </task>
+    <task id="Send_notification_to_customer" name="Send_notification_to_customer">
+      <incoming>Prepare_notification_message-Send_notification_to_customer</incoming>
+    </task>
+    <task id="Process_customer_order" name="Process_customer_order">
+      <incoming>Register_order-Process_customer_order</incoming>
+    </task>
+    <task id="Create_bulk_order" name="Create_bulk_order">
+      <outgoing>Create_bulk_order-Transmit_to_production</outgoing>
+    </task>
+    <task id="Develop_contract" name="Develop_contract"/>
+    <task id="Transmit_orders" name="Transmit_orders"/>
+    <task id="Plan_order" name="Plan_order"/>
+    <task id="Inform_customer_on_order" name="Inform_customer_on_order"/>
+    <task id="Enter_order" name="Enter_order"/>
+    <task id="Track_customer_order" name="Track_customer_order"/>
+    <task id="Evaluate_customer_credit" name="Evaluate_customer_credit"/>
     <sequenceFlow id="Evaluate_credit_risk-Define_pricing_policy" sourceRef="Evaluate_credit_risk" targetRef="Define_pricing_policy"/>
     <sequenceFlow id="Accept_order-Inform_customer" sourceRef="Accept_order" targetRef="Inform_customer"/>
     <sequenceFlow id="Create_production_order-Create_shipping_order" sourceRef="Create_production_order" targetRef="Create_shipping_order"/>
