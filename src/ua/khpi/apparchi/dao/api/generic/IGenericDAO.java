@@ -1,4 +1,4 @@
-package ua.khpi.apparchi.dao.api;
+package ua.khpi.apparchi.dao.api.generic;
 
 import ua.khpi.apparchi.entity.api.IGenericEntity;
 
