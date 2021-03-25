@@ -1,5 +1,6 @@
 package ua.khpi.apparchi.dao.api;
 
+import ua.khpi.apparchi.dao.api.generic.IGenericDAO;
 import ua.khpi.apparchi.entity.MeasureEntity;
 
 public interface IMeasureDAO extends IGenericDAO {
