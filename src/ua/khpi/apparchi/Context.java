@@ -7,6 +7,7 @@ import ua.khpi.apparchi.dao.api.IElementDAO;
 import ua.khpi.apparchi.dao.api.IMeasureDAO;
 import ua.khpi.apparchi.dao.api.IModelDAO;
 import ua.khpi.apparchi.dao.api.IStructureDAO;
+import ua.khpi.apparchi.dao.api.ISuggestionDAO;
 import ua.khpi.apparchi.entity.ModelEntity;
 import ua.khpi.apparchi.service.ArchiMateTranslationService;
 import ua.khpi.apparchi.service.api.ITranslationService;
@@ -18,6 +19,7 @@ public class Context {
 	private IStructureDAO structureDAO;
 	private IElementDAO elementDAO;
 	private IMeasureDAO measureDAO;
+	private ISuggestionDAO suggestionDAO;
 	
 	private ITranslationService translationService;
 
