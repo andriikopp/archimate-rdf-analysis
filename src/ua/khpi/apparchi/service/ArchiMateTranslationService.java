@@ -27,7 +27,7 @@ import ua.khpi.apparchi.entity.StructureEntity;
 import ua.khpi.apparchi.service.api.ITranslationService;
 
 public class ArchiMateTranslationService implements ITranslationService {
-	private static final String PATH = "file:\\D:\\GitHub\\archimate-rdf-analysis\\";
+	private static final String PATH = "file:\\D:\\GitHub\\archimate-rdf-analysis\\apparchi\\input\\";
 	private static final String XSLT_TRANSLATOR = "translator.xslt";
 
 	private IModelDAO modelDAO;

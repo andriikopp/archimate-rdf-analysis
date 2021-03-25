@@ -12,9 +12,7 @@ import ua.khpi.apparchi.entity.ModelEntity;
 import ua.khpi.apparchi.service.ArchiMateTranslationService;
 import ua.khpi.apparchi.service.api.ITranslationService;
 
-public class Context {
-	private static final String FILES_PREFIX = "apparchi\\input\\";
-	
+public class Context {	
 	private IModelDAO modelDAO;
 	private IStructureDAO structureDAO;
 	private IElementDAO elementDAO;
@@ -31,19 +29,23 @@ public class Context {
 	}
 
 	public void run() {
-		// Create model
-		ModelEntity model = new ModelEntity(UUID.randomUUID().toString(),
-				"Archisurance Example",
-				FILES_PREFIX + "Archisurance.xml",
-				new Date().toString(),
-				"This is an ArchiMate example model of insurance company",
-				"The Open Group",
-				"ArchiMate",
-				"Insurance",
-				"Archisurance");
+		// Register models
+		ModelEntity[] models = {
+				new ModelEntity(UUID.randomUUID().toString(),
+						"Archisurance Example",
+						"Archisurance.xml",
+						new Date().toString(),
+						"This is an ArchiMate example model of insurance company",
+						"The Open Group",
+						"ArchiMate",
+						"Insurance",
+						"Archisurance")
+		};
 		
 		// Parse models
-		this.translationService.translateModel(model);
+		for (ModelEntity model : models) {
+			this.translationService.translateModel(model);
+		};
 	}
 
 	public static void main(String[] args) {
