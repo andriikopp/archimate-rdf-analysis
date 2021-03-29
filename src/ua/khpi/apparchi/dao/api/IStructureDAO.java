@@ -1,14 +1,17 @@
 package ua.khpi.apparchi.dao.api;
 
+import java.util.List;
+
 import ua.khpi.apparchi.dao.api.generic.IGenericDAO;
-import ua.khpi.apparchi.entity.StructureEntity;
 import ua.khpi.apparchi.entity.api.IGenericEntity;
 
 public interface IStructureDAO extends IGenericDAO {
 
 	void create(IGenericEntity obj);
 
-	StructureEntity read(String id);
+	IGenericEntity read(String id);
+
+	List<IGenericEntity> readAll();
 
 	void update(String id, IGenericEntity obj);
 

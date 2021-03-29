@@ -27,7 +27,7 @@ import ua.khpi.apparchi.entity.StructureEntity;
 import ua.khpi.apparchi.service.api.ITranslationService;
 
 public class ArchiMateTranslationService implements ITranslationService {
-	private static final String PATH = "file:\\D:\\GitHub\\archimate-rdf-analysis\\apparchi\\input\\";
+	private static final String PATH = "file:\\C:\\Users\\kopp9\\Documents\\GitHub\\archimate-rdf-analysis\\apparchi\\input\\";
 	private static final String XSLT_TRANSLATOR = "translator.xslt";
 
 	private IModelDAO modelDAO;
@@ -87,15 +87,17 @@ public class ArchiMateTranslationService implements ITranslationService {
 			structureDAO.create(structure);
 			
 			for (String node : nodes) {
+				int incoming = inDeg.containsKey(node) ? inDeg.get(node) : 0;
+				int outgoing = outDeg.containsKey(node) ? outDeg.get(node) : 0;
+				
 				ElementEntity element = new ElementEntity(UUID.randomUUID().toString(),
 						structure.getId(),
 						node,
 						"Application Component",
-						inDeg.get(node),
-						outDeg.get(node));
+						incoming,
+						outgoing);
 				elementDAO.create(element);
 			}
-
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
