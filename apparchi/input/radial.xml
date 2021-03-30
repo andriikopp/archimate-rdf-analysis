@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-e004dd4a68044fab9709b8456922a29f">
+  <name xml:lang="en">radial</name>
+  <elements>
+    <element identifier="id-749c558ead434056b51e129d6357c27e" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Application Component 3.1</name>
+    </element>
+    <element identifier="id-dd77c5fddb2542c1a671f23dbcf13c8a" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Application Component 3.2</name>
+    </element>
+    <element identifier="id-c9e2a33c693847c2a720088969e9b0d5" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Application Component 3.3</name>
+    </element>
+    <element identifier="id-b38f032ce60749a0852950e816c47bec" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Application Component 3.4</name>
+    </element>
+    <element identifier="id-a08997e293644ae6a3b04c2569549d74" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Application Component 3.5</name>
+    </element>
+  </elements>
+  <relationships>
+    <relationship identifier="id-355d0de8c659479ab44068e5c3b59e10" source="id-749c558ead434056b51e129d6357c27e" target="id-dd77c5fddb2542c1a671f23dbcf13c8a" xsi:type="Association" />
+    <relationship identifier="id-be2e9520bd7446f5a5cd0c34eaf0713e" source="id-749c558ead434056b51e129d6357c27e" target="id-c9e2a33c693847c2a720088969e9b0d5" xsi:type="Association" />
+    <relationship identifier="id-0a3233db56234961b5857061424d015d" source="id-749c558ead434056b51e129d6357c27e" target="id-b38f032ce60749a0852950e816c47bec" xsi:type="Association" />
+    <relationship identifier="id-f3f614083bdd416ca8452858b76416b2" source="id-749c558ead434056b51e129d6357c27e" target="id-a08997e293644ae6a3b04c2569549d74" xsi:type="Association" />
+  </relationships>
+  <organizations>
+    <item>
+      <label xml:lang="en">Application</label>
+      <item identifierRef="id-749c558ead434056b51e129d6357c27e" />
+      <item identifierRef="id-dd77c5fddb2542c1a671f23dbcf13c8a" />
+      <item identifierRef="id-c9e2a33c693847c2a720088969e9b0d5" />
+      <item identifierRef="id-b38f032ce60749a0852950e816c47bec" />
+      <item identifierRef="id-a08997e293644ae6a3b04c2569549d74" />
+    </item>
+    <item>
+      <label xml:lang="en">Relations</label>
+      <item identifierRef="id-355d0de8c659479ab44068e5c3b59e10" />
+      <item identifierRef="id-be2e9520bd7446f5a5cd0c34eaf0713e" />
+      <item identifierRef="id-0a3233db56234961b5857061424d015d" />
+      <item identifierRef="id-f3f614083bdd416ca8452858b76416b2" />
+    </item>
+    <item>
+      <label xml:lang="en">Views</label>
+      <item identifierRef="id-69fa2f78bc0b4e0d973c1a47d318b227" />
+    </item>
+  </organizations>
+  <views>
+    <diagrams>
+      <view identifier="id-69fa2f78bc0b4e0d973c1a47d318b227" xsi:type="Diagram">
+        <name xml:lang="en">Radial</name>
+        <node identifier="id-2c8084073bd7467d8a71a68e12179a2a" elementRef="id-749c558ead434056b51e129d6357c27e" xsi:type="Element" x="505" y="257" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <node identifier="id-985fa292071c44ea831ba149613765ce" elementRef="id-dd77c5fddb2542c1a671f23dbcf13c8a" xsi:type="Element" x="505" y="132" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <node identifier="id-d6852a9b42c34004bc1f49e895b08e5c" elementRef="id-c9e2a33c693847c2a720088969e9b0d5" xsi:type="Element" x="720" y="257" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <node identifier="id-986b423d5b0a4d0c9c111611b4c99316" elementRef="id-b38f032ce60749a0852950e816c47bec" xsi:type="Element" x="505" y="372" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <node identifier="id-655c1704b2ce459f849535ba6f14a90c" elementRef="id-a08997e293644ae6a3b04c2569549d74" xsi:type="Element" x="288" y="257" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <connection identifier="id-5ee8d576b6dd46deab1d99ebf48958f1" relationshipRef="id-355d0de8c659479ab44068e5c3b59e10" xsi:type="Relationship" source="id-2c8084073bd7467d8a71a68e12179a2a" target="id-985fa292071c44ea831ba149613765ce">
+          <style>
+            <lineColor r="0" g="0" b="0" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </connection>
+        <connection identifier="id-76a96523486e49769c73d1055f433f4a" relationshipRef="id-be2e9520bd7446f5a5cd0c34eaf0713e" xsi:type="Relationship" source="id-2c8084073bd7467d8a71a68e12179a2a" target="id-d6852a9b42c34004bc1f49e895b08e5c">
+          <style>
+            <lineColor r="0" g="0" b="0" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </connection>
+        <connection identifier="id-ef17e4b5ad2d4bada4f0e90d0641aa92" relationshipRef="id-0a3233db56234961b5857061424d015d" xsi:type="Relationship" source="id-2c8084073bd7467d8a71a68e12179a2a" target="id-986b423d5b0a4d0c9c111611b4c99316">
+          <style>
+            <lineColor r="0" g="0" b="0" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </connection>
+        <connection identifier="id-09aa7bb89d85426d8466dd595b1c73a5" relationshipRef="id-f3f614083bdd416ca8452858b76416b2" xsi:type="Relationship" source="id-2c8084073bd7467d8a71a68e12179a2a" target="id-655c1704b2ce459f849535ba6f14a90c">
+          <style>
+            <lineColor r="0" g="0" b="0" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </connection>
+      </view>
+    </diagrams>
+  </views>
+</model>

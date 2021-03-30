@@ -3,13 +3,13 @@ package ua.khpi.apparchi.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import ua.khpi.apparchi.dao.api.IMeasureDAO;
+import ua.khpi.apparchi.dao.api.IModelDAO;
 import ua.khpi.apparchi.entity.api.IGenericEntity;
 
-public class MeasureDAO implements IMeasureDAO {
+public class ListModelDAO implements IModelDAO {
 	private List<IGenericEntity> objects;
 
-	public MeasureDAO() {
+	public ListModelDAO() {
 		this.objects = new ArrayList<>();
 	}
 

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd" identifier="id-e004dd4a68044fab9709b8456922a29f">
+  <name xml:lang="en">TemplateView</name>
+  <elements>
+    <element identifier="id-ad742a3595f749ac8224420c55eb3032" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Model</name>
+    </element>
+    <element identifier="id-907676b36a5a48f197653cb0610633c6" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Entity Helper</name>
+    </element>
+    <element identifier="id-b4f429a3da814d75865ae47168620810" xsi:type="ApplicationComponent">
+      <name xml:lang="en">Web Page</name>
+    </element>
+  </elements>
+  <relationships>
+    <relationship identifier="id-1adbe19701fd45db8da6aff7b8968727" source="id-b4f429a3da814d75865ae47168620810" target="id-907676b36a5a48f197653cb0610633c6" xsi:type="Serving" />
+    <relationship identifier="id-767a6825abd744b2b228f29c97301f72" source="id-907676b36a5a48f197653cb0610633c6" target="id-ad742a3595f749ac8224420c55eb3032" xsi:type="Serving" />
+  </relationships>
+  <organizations>
+    <item>
+      <label xml:lang="en">Application</label>
+      <item identifierRef="id-ad742a3595f749ac8224420c55eb3032" />
+      <item identifierRef="id-907676b36a5a48f197653cb0610633c6" />
+      <item identifierRef="id-b4f429a3da814d75865ae47168620810" />
+    </item>
+    <item>
+      <label xml:lang="en">Relations</label>
+      <item identifierRef="id-1adbe19701fd45db8da6aff7b8968727" />
+      <item identifierRef="id-767a6825abd744b2b228f29c97301f72" />
+    </item>
+    <item>
+      <label xml:lang="en">Views</label>
+      <item identifierRef="id-f0854ae51dba482b908c15d88b3189af" />
+    </item>
+  </organizations>
+  <views>
+    <diagrams>
+      <view identifier="id-f0854ae51dba482b908c15d88b3189af" xsi:type="Diagram">
+        <name xml:lang="en">TemplateView</name>
+        <node identifier="id-8f580fc233d44eb89519d34de5485305" elementRef="id-ad742a3595f749ac8224420c55eb3032" xsi:type="Element" x="191" y="242" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <node identifier="id-60403031b3b34325b94b9578260dedc7" elementRef="id-907676b36a5a48f197653cb0610633c6" xsi:type="Element" x="432" y="242" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <node identifier="id-0c87cd02027e4a4a889a792a66860724" elementRef="id-b4f429a3da814d75865ae47168620810" xsi:type="Element" x="672" y="242" w="120" h="55">
+          <style>
+            <fillColor r="181" g="255" b="255" a="100" />
+            <lineColor r="92" g="92" b="92" a="100" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </node>
+        <connection identifier="id-a748bfe62cb346ea939ede1dc7ae4531" relationshipRef="id-767a6825abd744b2b228f29c97301f72" xsi:type="Relationship" source="id-60403031b3b34325b94b9578260dedc7" target="id-8f580fc233d44eb89519d34de5485305">
+          <style>
+            <lineColor r="0" g="0" b="0" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </connection>
+        <connection identifier="id-7e54fc603c004c6a8df7261cd272396e" relationshipRef="id-1adbe19701fd45db8da6aff7b8968727" xsi:type="Relationship" source="id-0c87cd02027e4a4a889a792a66860724" target="id-60403031b3b34325b94b9578260dedc7">
+          <style>
+            <lineColor r="0" g="0" b="0" />
+            <font name="Segoe UI" size="9">
+              <color r="0" g="0" b="0" />
+            </font>
+          </style>
+        </connection>
+      </view>
+    </diagrams>
+  </views>
+</model>

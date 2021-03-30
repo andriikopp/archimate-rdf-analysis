@@ -3,13 +3,13 @@ package ua.khpi.apparchi.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import ua.khpi.apparchi.dao.api.ISuggestionDAO;
+import ua.khpi.apparchi.dao.api.IElementDAO;
 import ua.khpi.apparchi.entity.api.IGenericEntity;
 
-public class SuggestionDAO implements ISuggestionDAO {
+public class ListElementDAO implements IElementDAO {
 	private List<IGenericEntity> objects;
 
-	public SuggestionDAO() {
+	public ListElementDAO() {
 		this.objects = new ArrayList<>();
 	}
 

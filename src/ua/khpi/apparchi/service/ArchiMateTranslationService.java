@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URL;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -55,9 +54,9 @@ public class ArchiMateTranslationService implements ITranslationService {
 				String trimmed = line.trim();
 				String[] elements = trimmed.split(",");
 
-				if (elements.length == 3) {
+				if (elements.length == 2) {
 					String source = elements[0];
-					String target = elements[2];
+					String target = elements[1];
 					edges++;
 					nodes.add(source);
 					nodes.add(target);
@@ -78,13 +77,13 @@ public class ArchiMateTranslationService implements ITranslationService {
 				}
 			}
 			
-			modelDAO.create(model);
+			this.modelDAO.create(model);
 			StructureEntity structure = new StructureEntity(UUID.randomUUID().toString(),
 					model.getId(),
 					nodes.size(),
 					edges,
-					new Date().toString());
-			structureDAO.create(structure);
+					model.getTimestamp());
+			this.structureDAO.create(structure);
 			
 			for (String node : nodes) {
 				int incoming = inDeg.containsKey(node) ? inDeg.get(node) : 0;
@@ -96,7 +95,7 @@ public class ArchiMateTranslationService implements ITranslationService {
 						"Application Component",
 						incoming,
 						outgoing);
-				elementDAO.create(element);
+				this.elementDAO.create(element);
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);

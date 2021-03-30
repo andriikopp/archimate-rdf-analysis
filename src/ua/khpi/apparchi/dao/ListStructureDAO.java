@@ -3,13 +3,13 @@ package ua.khpi.apparchi.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import ua.khpi.apparchi.dao.api.IElementDAO;
+import ua.khpi.apparchi.dao.api.IStructureDAO;
 import ua.khpi.apparchi.entity.api.IGenericEntity;
 
-public class ElementDAO implements IElementDAO {
+public class ListStructureDAO implements IStructureDAO {
 	private List<IGenericEntity> objects;
 
-	public ElementDAO() {
+	public ListStructureDAO() {
 		this.objects = new ArrayList<>();
 	}
 
