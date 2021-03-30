@@ -1,7 +1,10 @@
 package ua.khpi.apparchi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
+import java.util.List;
+
+import com.google.gson.Gson;
 
 import ua.khpi.apparchi.dao.ListElementDAO;
 import ua.khpi.apparchi.dao.ListMeasureDAO;
@@ -13,8 +16,11 @@ import ua.khpi.apparchi.dao.api.IMeasureDAO;
 import ua.khpi.apparchi.dao.api.IModelDAO;
 import ua.khpi.apparchi.dao.api.IStructureDAO;
 import ua.khpi.apparchi.dao.api.ISuggestionDAO;
+import ua.khpi.apparchi.dao.api.generic.IGenericDAO;
+import ua.khpi.apparchi.entity.ElementEntity;
 import ua.khpi.apparchi.entity.MeasureEntity;
 import ua.khpi.apparchi.entity.ModelEntity;
+import ua.khpi.apparchi.entity.StructureEntity;
 import ua.khpi.apparchi.entity.SuggestionEntity;
 import ua.khpi.apparchi.entity.api.IGenericEntity;
 import ua.khpi.apparchi.service.ArchiMateMeasurementService;
@@ -23,6 +29,8 @@ import ua.khpi.apparchi.service.ArchiMateTranslationService;
 import ua.khpi.apparchi.service.api.IMeasurementService;
 import ua.khpi.apparchi.service.api.ISuggestionService;
 import ua.khpi.apparchi.service.api.ITranslationService;
+
+import static spark.Spark.*;
 
 public class Context {	
 	public static final String PATTERN = "@pattern";
@@ -66,7 +74,7 @@ public class Context {
 		
 		// Register patterns
 		ModelEntity[] patterns = {
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Sequential",
 						"sequential.xml",
 						timestamp,
@@ -75,7 +83,7 @@ public class Context {
 						"Thesis",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Ring",
 						"ring.xml",
 						timestamp,
@@ -84,7 +92,7 @@ public class Context {
 						"Thesis",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Radial",
 						"radial.xml",
 						timestamp,
@@ -93,7 +101,7 @@ public class Context {
 						"Thesis",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Tree",
 						"tree.xml",
 						timestamp,
@@ -102,7 +110,7 @@ public class Context {
 						"Thesis",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Mesh",
 						"mesh.xml",
 						timestamp,
@@ -114,7 +122,10 @@ public class Context {
 		};
 		
 		// Parse patterns
+		int patternNum = 1;
+		
 		for (ModelEntity model : patterns) {
+			model.setId("P" + String.valueOf(patternNum++));
 			this.translationService.translateModel(model);
 		};
 		
@@ -124,7 +135,7 @@ public class Context {
 		};
 		
 		ModelEntity[] models = {
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Application Controller",
 						"ApplicationController.xml",
 						timestamp,
@@ -133,7 +144,7 @@ public class Context {
 						"Patterns of Enterprise Application Architecture",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Front Controller",
 						"FrontController.xml",
 						timestamp,
@@ -142,7 +153,7 @@ public class Context {
 						"Patterns of Enterprise Application Architecture",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Model View Controller",
 						"ModelViewController.xml",
 						timestamp,
@@ -151,7 +162,7 @@ public class Context {
 						"Patterns of Enterprise Application Architecture",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Page Controller",
 						"PageController.xml",
 						timestamp,
@@ -160,7 +171,7 @@ public class Context {
 						"Patterns of Enterprise Application Architecture",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Template View",
 						"TemplateView.xml",
 						timestamp,
@@ -169,7 +180,7 @@ public class Context {
 						"Patterns of Enterprise Application Architecture",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Transform View",
 						"TransformView.xml",
 						timestamp,
@@ -178,7 +189,7 @@ public class Context {
 						"Patterns of Enterprise Application Architecture",
 						"System Design",
 						"KhPI"),
-				new ModelEntity(UUID.randomUUID().toString(),
+				new ModelEntity(null,
 						"Two-Step View",
 						"TwoStepView.xml",
 						timestamp,
@@ -190,7 +201,10 @@ public class Context {
 		};
 		
 		// Parse models
+		int modelNum = 1;
+		
 		for (ModelEntity model : models) {
+			model.setId("M" + String.valueOf(modelNum++));
 			this.translationService.translateModel(model);
 		};
 		
@@ -213,6 +227,32 @@ public class Context {
 		for (IGenericEntity suggestionEntity : this.suggestionDAO.readAll()) {
 			System.out.println((SuggestionEntity) suggestionEntity);
 		}
+		
+		// Web API
+		List<ElementEntity> elementList = castDAO(this.elementDAO);
+		List<MeasureEntity> measureList = castDAO(this.measureDAO);
+		List<ModelEntity> modelList = castDAO(this.modelDAO);
+		List<StructureEntity> structureList = castDAO(this.structureDAO);
+		List<SuggestionEntity> suggestionList = castDAO(this.suggestionDAO);
+		
+		path("/api", () -> {
+			get("/element", (req, res) -> new Gson().toJson(elementList));
+			get("/measure", (req, res) -> new Gson().toJson(measureList));
+			get("/model", (req, res) -> new Gson().toJson(modelList));
+			get("/structure", (req, res) -> new Gson().toJson(structureList));
+			get("/suggestion", (req, res) -> new Gson().toJson(suggestionList));
+		});
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <T extends IGenericEntity> List<T> castDAO(IGenericDAO daoObject) {
+		List<T> list = new ArrayList<T>();
+		
+		for (IGenericEntity obj : daoObject.readAll()) {
+			list.add((T) obj);
+		}
+		
+		return list;
 	}
 
 	public static void main(String[] args) {

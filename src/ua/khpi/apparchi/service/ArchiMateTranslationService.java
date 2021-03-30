@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Source;
@@ -78,18 +77,20 @@ public class ArchiMateTranslationService implements ITranslationService {
 			}
 			
 			this.modelDAO.create(model);
-			StructureEntity structure = new StructureEntity(UUID.randomUUID().toString(),
+			StructureEntity structure = new StructureEntity(model.getId() + "S",
 					model.getId(),
 					nodes.size(),
 					edges,
 					model.getTimestamp());
 			this.structureDAO.create(structure);
 			
+			int nodeNum = 1;
+			
 			for (String node : nodes) {
 				int incoming = inDeg.containsKey(node) ? inDeg.get(node) : 0;
 				int outgoing = outDeg.containsKey(node) ? outDeg.get(node) : 0;
 				
-				ElementEntity element = new ElementEntity(UUID.randomUUID().toString(),
+				ElementEntity element = new ElementEntity(structure.getId() + "E" + String.valueOf(nodeNum++),
 						structure.getId(),
 						node,
 						"Application Component",

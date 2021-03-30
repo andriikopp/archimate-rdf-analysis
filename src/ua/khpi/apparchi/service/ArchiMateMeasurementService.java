@@ -1,7 +1,5 @@
 package ua.khpi.apparchi.service;
 
-import java.util.UUID;
-
 import ua.khpi.apparchi.dao.api.IElementDAO;
 import ua.khpi.apparchi.dao.api.IMeasureDAO;
 import ua.khpi.apparchi.dao.api.IModelDAO;
@@ -75,7 +73,7 @@ public class ArchiMateMeasurementService implements IMeasurementService {
 		
 		centrality /= ((structureEntity.getNodes() - 1.0) * (structureEntity.getNodes() - 2.0));
 		irregularity = Math.sqrt(irregularity);
-		MeasureEntity measureEntity = new MeasureEntity(UUID.randomUUID().toString(),
+		MeasureEntity measureEntity = new MeasureEntity(model.getId() + "V",
 				model.getId(),
 				density,
 				avgDegree,

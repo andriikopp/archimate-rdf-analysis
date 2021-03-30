@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import ua.khpi.apparchi.Context;
 import ua.khpi.apparchi.dao.api.IMeasureDAO;
@@ -43,7 +42,7 @@ public class ArchiMateSuggestionService implements ISuggestionService {
 				MeasureEntity compareModelMeasures = measuresMap.get(modelEntity.getId());
 				double distance = SimilarityUtil.euclideanDistance(currentModelMeasures, compareModelMeasures);
 				String recommendation = RecommendationUtil.provideRecommendation(modelEntity.getTitle());
-				SuggestionEntity suggestionEntity = new SuggestionEntity(UUID.randomUUID().toString(), 
+				SuggestionEntity suggestionEntity = new SuggestionEntity(model.getId() + "R", 
 						model.getId(), 
 						modelEntity.getTitle(), 
 						distance, 
