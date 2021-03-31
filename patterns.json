@@ -1,0 +1,57 @@
+[
+	{
+		"id": "P1",
+		"title": "Sequential",
+		"file": "sequential.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "@pattern",
+		"author": "Me",
+		"project": "Thesis",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "P2",
+		"title": "Ring",
+		"file": "ring.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "@pattern",
+		"author": "Me",
+		"project": "Thesis",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "P3",
+		"title": "Radial",
+		"file": "radial.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "@pattern",
+		"author": "Me",
+		"project": "Thesis",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "P4",
+		"title": "Tree",
+		"file": "tree.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "@pattern",
+		"author": "Me",
+		"project": "Thesis",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "P5",
+		"title": "Mesh",
+		"file": "mesh.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "@pattern",
+		"author": "Me",
+		"project": "Thesis",
+		"industry": "System Design",
+		"organization": "KhPI"
+	}
+]

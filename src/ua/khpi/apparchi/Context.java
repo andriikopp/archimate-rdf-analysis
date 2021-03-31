@@ -1,5 +1,7 @@
 package ua.khpi.apparchi;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -242,6 +244,9 @@ public class Context {
 			get("/structure", (req, res) -> new Gson().toJson(structureList));
 			get("/suggestion", (req, res) -> new Gson().toJson(suggestionList));
 		});
+		
+		saveConfigs(patterns, "patterns.json");
+		saveConfigs(models, "models.json");
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -253,6 +258,16 @@ public class Context {
 		}
 		
 		return list;
+	}
+	
+	public void saveConfigs(ModelEntity[] models, String fileName) {
+		try {
+			FileWriter myWriter = new FileWriter(fileName);
+			myWriter.write(new Gson().toJson(models));
+			myWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args) {

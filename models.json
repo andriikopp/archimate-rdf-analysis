@@ -1,0 +1,79 @@
+[
+	{
+		"id": "M1",
+		"title": "Application Controller",
+		"file": "ApplicationController.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "Web Presentation Pattern",
+		"author": "Martin Fowler",
+		"project": "Patterns of Enterprise Application Architecture",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "M2",
+		"title": "Front Controller",
+		"file": "FrontController.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "Web Presentation Pattern",
+		"author": "Martin Fowler",
+		"project": "Patterns of Enterprise Application Architecture",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "M3",
+		"title": "Model View Controller",
+		"file": "ModelViewController.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "Web Presentation Pattern",
+		"author": "Martin Fowler",
+		"project": "Patterns of Enterprise Application Architecture",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "M4",
+		"title": "Page Controller",
+		"file": "PageController.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "Web Presentation Pattern",
+		"author": "Martin Fowler",
+		"project": "Patterns of Enterprise Application Architecture",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "M5",
+		"title": "Template View",
+		"file": "TemplateView.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "Web Presentation Pattern",
+		"author": "Martin Fowler",
+		"project": "Patterns of Enterprise Application Architecture",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "M6",
+		"title": "Transform View",
+		"file": "TransformView.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "Web Presentation Pattern",
+		"author": "Martin Fowler",
+		"project": "Patterns of Enterprise Application Architecture",
+		"industry": "System Design",
+		"organization": "KhPI"
+	},
+	{
+		"id": "M7",
+		"title": "Two-Step View",
+		"file": "TwoStepView.xml",
+		"timestamp": "Wed Mar 31 12:32:25 EEST 2021",
+		"description": "Web Presentation Pattern",
+		"author": "Martin Fowler",
+		"project": "Patterns of Enterprise Application Architecture",
+		"industry": "System Design",
+		"organization": "KhPI"
+	}
+]
