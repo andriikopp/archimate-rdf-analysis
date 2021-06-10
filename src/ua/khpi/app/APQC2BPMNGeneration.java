@@ -1,6 +1,9 @@
 package ua.khpi.app;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 import org.camunda.bpm.model.bpmn.Bpmn;
@@ -8,8 +11,7 @@ import org.camunda.bpm.model.bpmn.builder.UserTaskBuilder;
 
 public class APQC2BPMNGeneration {
 
-	public static final String[][] APQC_GLOSSARY = { { "id", "title", "parent" },
-			{ "1.", "Develop Vision and Strategy", "0." },
+	public static final String[][] APQC_GLOSSARY = { { "1.", "Develop Vision and Strategy", "0." },
 			{ "1.1.", "Define the business concept and long-term vision", "1." },
 			{ "1.1.1.", "Assess the external environment", "1.1." }, { "1.1.1.1.", "Identify competitors", "1.1.1." },
 			{ "1.1.1.2.", "Analyze and Evaluate competition", "1.1.1." },
@@ -1511,7 +1513,27 @@ public class APQC2BPMNGeneration {
 		return activityList;
 	}
 
+	public static String getDescriptionByProcessId(String processId) {
+		List<String[]> activityList = getActivityListByParentProcessId(processId);
+
+		String processDescription = "";
+
+		if (!activityList.isEmpty()) {
+			processDescription += activityList.get(0)[0] + " " + activityList.get(0)[1];
+
+			for (int i = 1; i < activityList.size(); i++) {
+				processDescription += ", " + activityList.get(i)[0] + " " + activityList.get(i)[1];
+			}
+
+			processDescription += ".";
+		}
+
+		return processDescription;
+	}
+
 	public static void generateBPMNModels() {
+		String exportModelsCollection = "const APQCModelsList = [";
+
 		for (String[] record : APQC_GLOSSARY) {
 			String id = record[0];
 			String title = record[1].replaceAll("[^a-zA-Z0-9]", " ");
@@ -1520,6 +1542,11 @@ public class APQC2BPMNGeneration {
 
 			if (!activityList.isEmpty()) {
 				String modelName = id + " " + title;
+				String description = getDescriptionByProcessId(id);
+
+				if (description.isEmpty()) {
+					description = id + " " + record[1] + ".";
+				}
 
 				System.out.println("Creating a model '" + modelName + ".bpmn' ...");
 
@@ -1538,7 +1565,20 @@ public class APQC2BPMNGeneration {
 
 				File file = new File("APQC\\" + modelName + ".bpmn");
 				Bpmn.writeModelToFile(file, builder.endEvent().done());
+
+				exportModelsCollection += "['" + modelName
+						+ "', 'https://raw.githubusercontent.com/freebpmnquality/cloud-services/main/storage/models/"
+						+ modelName + "', '" + description + "', 'Cross Industry', '" + System.currentTimeMillis()
+						+ "'], ";
 			}
+		}
+
+		exportModelsCollection += "];";
+
+		try {
+			Files.write(Paths.get("APQC\\models.js"), exportModelsCollection.getBytes());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
